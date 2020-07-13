@@ -5,9 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    name: 'vuex123'
+    name: 'vuex123',
+    count: 0
   },
-  mutations: {},
+  mutations: {
+    increment(state) {
+      // 变更状态
+      state.count++
+    }
+  },
   actions: {},
   modules: {}
 })
