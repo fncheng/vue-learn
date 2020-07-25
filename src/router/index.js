@@ -29,6 +29,10 @@ const routes = [
       { path: 'test', component: Foo }, // 无效
       { path: 'profile', component: () => import('../views/UserProfile.vue') }
     ]
+  },
+  {
+    path: '/antdesign',
+    component: () => import('@/views/AntDesign')
   }
 ]
 
