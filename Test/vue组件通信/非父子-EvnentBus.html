@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <component-a></component-a>
+    <component-b></component-b>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const bus = new Vue({})
+    Vue.component('component-a', {
+      template: `
+        <button @click="changeCount">Click {{count}}</button>
+      `,
+      data() {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        changeCount() {
+          this.count++;
+          bus.$emit('countChange', this.count)
+        }
+      },
+    })
+    Vue.component('component-b', {
+      template: `
+        <p>{{mainCount}}</p>
+      `,
+      data() {
+        return {
+          mainCount: 0
+        }
+      },
+      mounted() {
+        bus.$on('countChange', this.updateCount)
+      },
+      methods: {
+        updateCount(count) {
+          this.mainCount = count
+        }
+      },
+      beforeDestroy() {
+        console.log('待销毁');
+      },
+      destroyed() {
+        console.log('已销毁');
+      },
+    })
+    const vm = new Vue({
+      el: "#app",
+    })
+  </script>
+</body>
+
+</html>

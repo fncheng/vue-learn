@@ -6,14 +6,26 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     name: 'vuex123',
-    count: 0
+    count: 0,
+    msg: ''
   },
   mutations: {
-    increment(state) {
+    increment(state, value) {
+      // setTimeout(() => {
+      //   state.msg = value
+      // }, 1000)
       // 变更状态
+      state.msg = value
       state.count++
     }
   },
-  actions: {},
-  modules: {}
+  actions: {
+    incrementAsync({ commit }) {
+      setTimeout(() => {
+        commit('increment')
+      }, 1000)
+    }
+  },
+  modules: {},
+  strict: true
 })

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{money}}</p>
+    <welcome-button v-on:welcome="sayHi"></welcome-button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('welcome-button', {
+      template: `
+        <button v-on:click="$emit('welcome','你好',18)">
+          Click me to be welcomed
+        </button>
+      `
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        money: null
+      },
+      methods: {
+        sayHi: function (str, money) {
+          console.log(str);
+          alert('Hi!' + str)
+          this.money = money
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

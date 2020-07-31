@@ -23,6 +23,12 @@ const routes = [
   },
   { path: '/index', redirect: '/' },
   {
+    path: '/father',
+    name: 'Father',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/Father.vue')
+  },
+  {
     path: '/user/:id',
     component: () => import('../views/User.vue'),
     children: [

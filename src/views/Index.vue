@@ -1,6 +1,8 @@
 <template>
   <div class="index">
     <h1>Index页面</h1>
+    <router-link to="/father">Father</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -27,9 +29,17 @@ export default {
     //     console.log(err)
     //   })
     // ------------等效于------------
-    // getAllFiles("https://gonelist.cugxuan.cn", "/").then(res => console.log(res))
+    // getAllFiles("https://gonelist.cugxuan.cn", "/").then(res =>
+    //   console.log(("res:", res))
+    // )
+    // js-cookie
+    // Cookies.set("name", "zs")
   }
 }
 </script>
 
-<style></style>
+<style>
+body {
+  height: 100%;
+}
+</style>
