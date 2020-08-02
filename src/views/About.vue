@@ -23,16 +23,19 @@ export default {
       EventBus.$emit("msgSend", this.msg)
     }
   },
-  beforeRouteEnter() {
+  beforeRouteEnter(to, from, next) {
     // ...
     console.log("beforeRouteEnter: 路由前置守卫")
+    next()
   },
-  beforeRouteUpdate() {
+  beforeRouteUpdate(to, from, next) {
     console.log("beforeRouteUpdate: 路由更新守卫")
+    next()
   },
-  beforeRouteLeave() {
+  beforeRouteLeave(to, from, next) {
     // ...
     console.log("beforeRouteLeave: 路由后置守卫")
+    next()
   }
 }
 </script>

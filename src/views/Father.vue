@@ -1,7 +1,7 @@
 // Props传值
 <template>
   <div class="father">
-    <component-a :my-msg="msg"></component-a>
+    <component-a :my-msg="msg" ref="myComponent"></component-a>
     <button @click="bindClick">点击</button>
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {
   methods: {
     bindClick(props) {
       console.log(props)
+      console.log(this.$refs.myComponent)
     }
   }
 }
