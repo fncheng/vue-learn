@@ -45,5 +45,17 @@ const routes = [
 const router = new VueRouter({
   routes
 })
+router.beforeEach((to, from, next) => {
+  // to and from are both route objects. must call `next`.
+  if (to.path == '/father') {
+    next('/')
+  }
+  console.log('beforeEach: 全局路由守卫,路由跳转前触发')
+  next()
+})
+router.afterEach(() => {
+  // to and from are both route objects.
+  console.log('afterEach: 全局后置守卫,路由跳转后触发')
+})
 
 export default router

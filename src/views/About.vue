@@ -22,6 +22,17 @@ export default {
     sendMsg() {
       EventBus.$emit("msgSend", this.msg)
     }
+  },
+  beforeRouteEnter() {
+    // ...
+    console.log("beforeRouteEnter: 路由前置守卫")
+  },
+  beforeRouteUpdate() {
+    console.log("beforeRouteUpdate: 路由更新守卫")
+  },
+  beforeRouteLeave() {
+    // ...
+    console.log("beforeRouteLeave: 路由后置守卫")
   }
 }
 </script>

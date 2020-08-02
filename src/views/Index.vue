@@ -2,6 +2,7 @@
   <div class="index">
     <h1>Index页面</h1>
     <router-link to="/father">Father</router-link>
+    <router-link to="/about">About</router-link>
     <router-view></router-view>
   </div>
 </template>
