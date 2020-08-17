@@ -32,7 +32,7 @@ export default {
       }
     }
   },
-  name: "Slot",
+  name: "mySlot",
   components: {
     "slot-a": slotA,
     "slot-b": slotB

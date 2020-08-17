@@ -13,17 +13,18 @@
         {{ tab }}
       </button>
 
-      <keep-alive>
+      <keep-alive include="" exclude="">
         <component v-bind:is="currentTabComponent" class="tab"></component>
       </keep-alive>
     </div>
   </div>
 </template>
 <script>
-import EventBus from "../event-bus"
+import EventBus from "@/event-bus"
 import tabArchive from "@/components/tab-archive"
 import tabPosts from "@/components/posts-tab"
 export default {
+  name: "About",
   data() {
     return {
       count: 0,

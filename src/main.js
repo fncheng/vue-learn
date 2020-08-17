@@ -7,7 +7,7 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 
 import User from './views/User'
-import About from './views/About'
+import About from '@/views/About/index.vue'
 
 Vue.config.productionTip = false
 // 使用ant-design-vue

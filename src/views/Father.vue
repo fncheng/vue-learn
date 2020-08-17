@@ -1,6 +1,7 @@
 // Props传值
 <template>
   <div class="father">
+    <input type="text" v-model="inputValue" />
     <component-a :my-msg="msg" ref="myComponent"></component-a>
     <button @click="bindClick">点击</button>
   </div>
@@ -14,7 +15,8 @@ export default {
   },
   data() {
     return {
-      msg: "12345"
+      msg: "12345",
+      inputValue: "hello"
     }
   },
   methods: {
