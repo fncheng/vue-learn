@@ -19,7 +19,12 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue')
+      import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    beforeEnter: (to, from, next) => {
+      // ...
+      console.log('------beforeEnter: 路由独享的守卫------')
+      next()
+    }
   },
   { path: '/index', redirect: '/' },
   {
@@ -39,6 +44,10 @@ const routes = [
   {
     path: '/antdesign',
     component: () => import('@/views/AntDesign')
+  },
+  {
+    path: '/slot',
+    component: () => import('@/views/Slot')
   }
 ]
 
@@ -50,12 +59,16 @@ router.beforeEach((to, from, next) => {
   if (to.path == '/father') {
     next('/')
   }
-  console.log('beforeEach: 全局路由守卫,路由跳转前触发')
+  console.group('------beforeEach: 全局路由守卫,路由跳转前触发------')
   next()
 })
 router.afterEach(() => {
   // to and from are both route objects.
-  console.log('afterEach: 全局后置守卫,路由跳转后触发')
+  console.log('------afterEach: 全局后置守卫,路由跳转后触发------')
+})
+router.beforeResolve((to, from, next) => {
+  console.log('------beforeResolve: 全局解析守卫,路由跳转前触发------')
+  next()
 })
 
 export default router
