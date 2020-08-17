@@ -1,8 +1,9 @@
 <template>
   <div class="index">
     <h1>Index页面</h1>
-    <router-link to="/father">Father</router-link>
-    <router-link to="/about">About</router-link>
+    <router-link to="/father">Father</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/slot">Slot</router-link> |
     <router-view></router-view>
   </div>
 </template>
@@ -35,6 +36,20 @@ export default {
     // )
     // js-cookie
     // Cookies.set("name", "zs")
+  },
+  beforeRouteEnter(to, from, next) {
+    // ...
+    console.group("----beforeRouteEnter: Index组件前置守卫----")
+    next()
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log("----beforeRouteUpdate: Index组件更新守卫----")
+    next()
+  },
+  beforeRouteLeave(to, from, next) {
+    // ...
+    console.log("----beforeRouteLeave: Index组件后置守卫----")
+    next()
   }
 }
 </script>
