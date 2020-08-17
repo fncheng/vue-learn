@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Layout from '@/layout/index.vue'
+
 // 路由入口
 Vue.use(VueRouter)
 
@@ -10,28 +12,44 @@ const routes = [
   {
     path: '/',
     name: 'index',
-    component: () => import('../views/Index.vue')
+    component: Layout
   },
   {
     path: '/about',
     name: 'myAbout',
+    redirect: '/about/index',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: Layout,
     beforeEnter: (to, from, next) => {
       // ...
       console.log('------beforeEnter: 路由独享的守卫------')
       next()
-    }
+    },
+    children: [
+      {
+        path: 'index',
+        component: () =>
+          import(/* webpackChunkName: "about" */ '@/views/About/index.vue')
+      }
+    ]
   },
   { path: '/index', redirect: '/' },
   {
     path: '/father',
     name: 'Father',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Father.vue')
+    redirect: '/father/index',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/Father'),
+        meta: {
+          keepAlive: true
+        }
+      }
+    ]
   },
   {
     path: '/user/:id',
@@ -47,7 +65,9 @@ const routes = [
   },
   {
     path: '/slot',
-    component: () => import('@/views/Slot')
+    redirect: '/slot/index',
+    component: Layout,
+    children: [{ path: 'index', component: () => import('@/views/Slot') }]
   }
 ]
 
