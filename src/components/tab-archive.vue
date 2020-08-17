@@ -3,7 +3,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  activated() {
+    console.log("TabArchive组件激活")
+  },
+  deactivated() {
+    console.log("TabArchive组件失活")
+  }
+}
 </script>
 
 <style></style>

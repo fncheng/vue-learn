@@ -49,11 +49,23 @@ export default {
       selectedPost: null
     }
   },
+  created() {
+    console.log("TabPosts组件created")
+  },
+  mounted() {
+    console.log("TabPosts组件mounted")
+  },
+  updated() {
+    console.log("TabPosts组件Updated")
+  },
+  destroyed() {
+    console.log("TabPosts组件Destoryed")
+  },
   activated() {
-    console.log("组件被激活")
+    console.log("TabPosts组件被激活")
   },
   deactivated() {
-    console.log("组件失活")
+    console.log("TabPosts组件失活")
   }
 }
 </script>
