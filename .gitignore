@@ -4,8 +4,6 @@ Test
 /dist
 /src/api
 /src/assets
-/src/components
-/src/router
 
 # local env files
 .env.local
