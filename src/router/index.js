@@ -68,6 +68,12 @@ const routes = [
     redirect: '/slot/index',
     component: Layout,
     children: [{ path: 'index', component: () => import('@/views/Slot') }]
+  },
+  {
+    path: '/mixin',
+    redirect: '/mixin',
+    component: Layout,
+    children: [{ path: '', component: () => import('@/views/Mixin') }]
   }
 ]
 
