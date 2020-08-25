@@ -5,6 +5,7 @@
       <router-link to="/father">Father</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/slot">Slot</router-link> |
+      <router-link to="/mixin">Mixin</router-link> |
     </header>
     <div id="main-content">
       <keep-alive>
