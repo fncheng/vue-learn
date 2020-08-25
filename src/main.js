@@ -16,6 +16,13 @@ Vue.use(Antd)
 Vue.component('user', User)
 Vue.component('about', About)
 
+// 全局mixin
+Vue.mixin({
+  created() {
+    console.log('global mixin')
+  }
+})
+
 new Vue({
   router,
   store,
