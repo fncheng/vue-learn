@@ -16,21 +16,23 @@
       <keep-alive include="" exclude="">
         <component v-bind:is="currentTabComponent" class="tab"></component>
       </keep-alive>
+
+      <button @click="getLocalStorage">取出数据</button>
     </div>
   </div>
 </template>
 <script>
-import EventBus from "@/event-bus"
-import tabArchive from "@/components/tab-archive"
-import tabPosts from "@/components/posts-tab"
+import EventBus from '@/event-bus'
+import tabArchive from '@/components/tab-archive'
+import tabPosts from '@/components/posts-tab'
 export default {
-  name: "About",
+  name: 'About',
   data() {
     return {
       count: 0,
-      msg: "Hello",
-      currentTab: "Posts",
-      tabs: ["Posts", "Archive"]
+      msg: 'Hello',
+      currentTab: 'Posts',
+      tabs: ['Posts', 'Archive']
     }
   },
   components: {
@@ -39,30 +41,34 @@ export default {
   },
   computed: {
     currentTabComponent: function() {
-      return "tab-" + this.currentTab.toLowerCase()
+      return 'tab-' + this.currentTab.toLowerCase()
     }
   },
   methods: {
     changeCount() {
       this.count++
-      this.$emit("countChange", this.count)
+      this.$emit('countChange', this.count)
+    },
+    getLocalStorage() {
+      const name = localStorage.getItem('name')
+      console.log(name)
     },
     sendMsg() {
-      EventBus.$emit("msgSend", this.msg)
+      EventBus.$emit('msgSend', this.msg)
     }
   },
   beforeRouteEnter(to, from, next) {
     // ...
-    console.group("----beforeRouteEnter: About组件前置守卫----")
+    console.group('----beforeRouteEnter: About组件前置守卫----')
     next()
   },
   beforeRouteUpdate(to, from, next) {
-    console.log("----beforeRouteUpdate: About组件更新守卫----")
+    console.log('----beforeRouteUpdate: About组件更新守卫----')
     next()
   },
   beforeRouteLeave(to, from, next) {
     // ...
-    console.log("----beforeRouteLeave: About组件后置守卫----")
+    console.log('----beforeRouteLeave: About组件后置守卫----')
     next()
   }
   /* beforeRouteUpdate(to, from, next) {
