@@ -6,13 +6,11 @@ import Layout from '@/layout/index.vue'
 // 路由入口
 Vue.use(VueRouter)
 
-const Foo = { template: '<div>Foo子组件</div>' }
-
 const routes = [
   {
     path: '/',
     name: 'index',
-    component: Layout
+    component: Layout,
   },
   {
     path: '/about',
@@ -31,9 +29,9 @@ const routes = [
       {
         path: 'index',
         component: () =>
-          import(/* webpackChunkName: "about" */ '@/views/About/index.vue')
-      }
-    ]
+          import(/* webpackChunkName: "about" */ '@/views/About/index.vue'),
+      },
+    ],
   },
   { path: '/index', redirect: '/' },
   {
@@ -46,39 +44,41 @@ const routes = [
         path: 'index',
         component: () => import('@/views/Father'),
         meta: {
-          keepAlive: true
-        }
-      }
-    ]
+          keepAlive: true,
+        },
+      },
+    ],
   },
   {
-    path: '/user/:id',
-    component: () => import('../views/User.vue'),
+    path: '/user',
+    // component: () => import('../views/User.vue'),
+    component: Layout,
+    redirect: '/user/test',
     children: [
-      { path: 'test', component: Foo }, // 无效
-      { path: 'profile', component: () => import('../views/UserProfile.vue') }
-    ]
+      { path: 'test', component: () => import('@/views/User') },
+      { path: 'profile', component: () => import('../views/UserProfile.vue') },
+    ],
   },
   {
     path: '/antdesign',
-    component: () => import('@/views/AntDesign')
+    component: () => import('@/views/AntDesign'),
   },
   {
     path: '/slot',
     redirect: '/slot/index',
     component: Layout,
-    children: [{ path: 'index', component: () => import('@/views/Slot') }]
+    children: [{ path: 'index', component: () => import('@/views/Slot') }],
   },
   {
     path: '/mixin',
     redirect: '/mixin',
     component: Layout,
-    children: [{ path: '', component: () => import('@/views/Mixin') }]
-  }
+    children: [{ path: '', component: () => import('@/views/Mixin') }],
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
 })
 router.beforeEach((to, from, next) => {
   // to and from are both route objects. must call `next`.
