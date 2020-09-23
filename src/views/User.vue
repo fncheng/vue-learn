@@ -7,6 +7,8 @@
     </ul>
     用户名:
     <span>{{ username }}</span>
+    computed和localStorage:
+    <span>{{ localComputed }}</span>
     <br />
     输入值:<input @input="increment" type="text" /> 输入值:<input
       @input="incrementAsync"
@@ -22,7 +24,12 @@
 
 <script>
 export default {
-  name: "user",
+  name: 'user',
+  data() {
+    return {
+      localCom: localStorage.getItem('com')
+    }
+  },
   props: {
     myname: String,
     price: Number,
@@ -34,16 +41,27 @@ export default {
     },
     count() {
       return this.$store.state.count
+    },
+    // 计算属性只更改一次,获取不到localStorage中的变化
+    localComputed() {
+      return this.localCom
     }
   },
   methods: {
     increment(e) {
-      this.$store.commit("increment", e.target.value)
+      this.$store.commit('increment', e.target.value)
       console.log(e)
     },
     incrementAsync(e) {
-      this.$store.dispatch("incrementAsync", e.target.value)
+      this.$store.dispatch('incrementAsync', e.target.value)
     }
+  },
+  created() {
+    localStorage.setItem('com', 'jisuanshuxing')
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log('com: ', localStorage.getItem('com'))
+    next()
   }
 }
 </script>
