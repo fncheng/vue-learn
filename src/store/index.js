@@ -7,7 +7,13 @@ export default new Vuex.Store({
   state: {
     name: 'vuex123',
     count: 0,
-    msg: ''
+    msg: '',
+    status: 0,
+  },
+  getters: {
+    getStatus(state) {
+      return state.status
+    },
   },
   mutations: {
     increment(state, value) {
@@ -17,15 +23,18 @@ export default new Vuex.Store({
       // 变更状态
       state.msg = value
       state.count++
-    }
+    },
+    setStatus(state, data) {
+      state.status = data
+    },
   },
   actions: {
     incrementAsync({ commit }) {
       setTimeout(() => {
         commit('increment')
       }, 1000)
-    }
+    },
   },
   modules: {},
-  strict: true
+  strict: true,
 })
