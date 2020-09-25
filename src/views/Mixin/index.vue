@@ -1,6 +1,9 @@
 <template>
   <div class="mixins">
     <span>{{ msg }}</span>
+    <div>{{ age || '001' }}</div>
+    <div>{{ name | strToUpperCase }}</div>
+    <div>{{ sex || 'male' | strToUpperCase }}</div>
   </div>
 </template>
 
@@ -18,10 +21,18 @@ const myMixin = {
 }
 export default {
   mixins: [myMixin],
-  name: "mixins",
+  name: 'mixins',
   data() {
     return {
-      msg: "mixin"
+      msg: 'mixin',
+      name: 'zs',
+      age: '',
+      sex: ''
+    }
+  },
+  filters: {
+    strToUpperCase(str) {
+      return str.toUpperCase()
     }
   }
 }
