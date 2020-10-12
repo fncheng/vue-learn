@@ -5,6 +5,9 @@ import store from './store'
 // 引入ant-design-vue
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
+// 引入element-ui
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 import User from './views/User'
 import About from '@/views/About/index.vue'
@@ -12,6 +15,7 @@ import About from '@/views/About/index.vue'
 Vue.config.productionTip = false
 // 使用ant-design-vue
 Vue.use(Antd)
+Vue.use(ElementUI)
 // 全局注册组件
 Vue.component('user', User)
 Vue.component('about', About)
@@ -20,11 +24,11 @@ Vue.component('about', About)
 Vue.mixin({
   created() {
     console.log('global mixin')
-  }
+  },
 })
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount('#app')
