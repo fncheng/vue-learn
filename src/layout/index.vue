@@ -6,6 +6,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/slot">Slot</router-link> |
       <router-link to="/mixin">Mixin</router-link> |
+      <router-link to="/element-ui">ElementUI</router-link>
     </header>
     <div id="main-content">
       <keep-alive>
@@ -24,10 +25,10 @@
 // import { getAllFiles } from "../Api/api"
 // import service from "../utils/util"
 export default {
-  name: "Layout",
+  name: 'Layout',
   data() {
     return {
-      msg: "hello vue"
+      msg: 'hello vue'
     }
   },
   created() {
@@ -51,16 +52,16 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     // ...
-    console.group("----beforeRouteEnter: Index组件前置守卫----")
+    console.group('----beforeRouteEnter: Index组件前置守卫----')
     next()
   },
   beforeRouteUpdate(to, from, next) {
-    console.log("----beforeRouteUpdate: Index组件更新守卫----")
+    console.log('----beforeRouteUpdate: Index组件更新守卫----')
     next()
   },
   beforeRouteLeave(to, from, next) {
     // ...
-    console.log("----beforeRouteLeave: Index组件后置守卫----")
+    console.log('----beforeRouteLeave: Index组件后置守卫----')
     next()
   }
 }
