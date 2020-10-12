@@ -6,8 +6,6 @@ import Layout from '@/layout/index.vue'
 // 路由入口
 Vue.use(VueRouter)
 
-const Foo = { template: '<div>Foo子组件</div>' }
-
 const routes = [
   {
     path: '/',
@@ -52,10 +50,12 @@ const routes = [
     ],
   },
   {
-    path: '/user/:id',
-    component: () => import('../views/User.vue'),
+    path: '/user',
+    // component: () => import('../views/User.vue'),
+    component: Layout,
+    redirect: '/user/test',
     children: [
-      { path: 'test', component: Foo }, // 无效
+      { path: 'test', component: () => import('@/views/User') },
       { path: 'profile', component: () => import('../views/UserProfile.vue') },
     ],
   },

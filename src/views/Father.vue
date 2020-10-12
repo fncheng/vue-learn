@@ -1,10 +1,15 @@
 // Props传值
 <template>
   <div class="father">
-    <input type="text" v-model="inputValue" />
+    inputValue: <input type="text" v-model="inputValue" /> <br />
+    msg: <input type="text" v-model="msg" />
+    <div>{{ reverseMsg }}</div>
     <component-a :my-msg="msg" ref="myComponent">123</component-a>
     <component-b ref="myComponentB">123</component-b>
-    <button @click="bindClick">点击</button>
+    <button @click="bindClick" :disabled="showButton()">
+      点击
+    </button>
+    <button @click="setLocalStorage">存入数据</button>
   </div>
 </template>
 
@@ -19,7 +24,26 @@ export default {
   data() {
     return {
       msg: '12345',
-      inputValue: 'hello'
+      inputValue: 'hello',
+      isShowButton: false,
+      isButton: false
+    }
+  },
+  computed: {
+    reverseMsg() {
+      console.log('---------------------------------')
+      return this.msg
+        .split('')
+        .reverse()
+        .join('')
+    }
+  },
+  watch: {
+    inputValue() {
+      console.log('inputValue has changed')
+    },
+    reverseMsg() {
+      console.log('reverseMsg has changed')
     }
   },
   methods: {
@@ -30,6 +54,12 @@ export default {
       // console.log("B: ", this.$refs["myComponentB"].$el.innerText)
       // console.log("$slot: ", this.$slots)
       this.$refs.myComponentB.getSlot()
+    },
+    setLocalStorage() {
+      localStorage.setItem('name', 'zs')
+    },
+    showButton() {
+      return true
     }
   },
   mounted() {
