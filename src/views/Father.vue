@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import componentA from "@/components/componentA"
-import componentB from "@/components/componentB"
+import componentA from '@/components/componentA'
+import componentB from '@/components/componentB'
 export default {
   components: {
     componentA: componentA,
@@ -18,8 +18,8 @@ export default {
   },
   data() {
     return {
-      msg: "12345",
-      inputValue: "hello"
+      msg: '12345',
+      inputValue: 'hello'
     }
   },
   methods: {
@@ -33,7 +33,7 @@ export default {
     }
   },
   mounted() {
-    console.log("组件：", this.$children)
+    console.log('组件：', this.$children)
   }
 }
 </script>
