@@ -34,6 +34,34 @@ export default {
     strToUpperCase(str) {
       return str.toUpperCase()
     }
+  },
+  async created() {
+    await setTimeout(() => {
+      console.log(1)
+    }, 5000)
+  },
+  async mounted() {
+    console.log(2)
+  },
+  // async mounted() {
+  //   let res = await this.getNumber()
+  //   console.log('async mounted:', res)
+  // },
+  // mounted() {
+  //   let res = this.getNumber1()
+  //   console.log('mounted:', res)
+  // },
+
+  methods: {
+    getNumber() {
+      return setTimeout(() => {
+        console.log('123')
+        return '123'
+      }, 6000)
+    },
+    getNumber1() {
+      return 123
+    }
   }
 }
 </script>

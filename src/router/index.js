@@ -68,10 +68,10 @@ const routes = [
     component: () => import('@/views/AntDesign'),
   },
   {
-    path: '/slot',
-    redirect: '/slot/index',
+    path: '/life',
+    redirect: '/life/index',
     component: Layout,
-    children: [{ path: 'index', component: () => import('@/views/Slot') }],
+    children: [{ path: '', component: () => import('@/views/LifeCycle') }],
   },
   {
     path: '/mixin',
@@ -79,26 +79,32 @@ const routes = [
     component: Layout,
     children: [{ path: '', component: () => import('@/views/Mixin') }],
   },
+  {
+    path: '/slot',
+    redirect: '/slot/index',
+    component: Layout,
+    children: [{ path: 'index', component: () => import('@/views/Slot') }],
+  },
 ]
 
 const router = new VueRouter({
   routes,
 })
-router.beforeEach((to, from, next) => {
-  // to and from are both route objects. must call `next`.
-  if (to.path == '/father') {
-    next('/')
-  }
-  console.group('------beforeEach: 全局路由守卫,路由跳转前触发------')
-  next()
-})
-router.afterEach(() => {
-  // to and from are both route objects.
-  console.log('------afterEach: 全局后置守卫,路由跳转后触发------')
-})
-router.beforeResolve((to, from, next) => {
-  console.log('------beforeResolve: 全局解析守卫,路由跳转前触发------')
-  next()
-})
+// router.beforeEach((to, from, next) => {
+//   // to and from are both route objects. must call `next`.
+//   if (to.path == '/father') {
+//     next('/')
+//   }
+//   console.group('------beforeEach: 全局路由守卫,路由跳转前触发------')
+//   next()
+// })
+// router.afterEach(() => {
+//   // to and from are both route objects.
+//   console.log('------afterEach: 全局后置守卫,路由跳转后触发------')
+// })
+// router.beforeResolve((to, from, next) => {
+//   console.log('------beforeResolve: 全局解析守卫,路由跳转前触发------')
+//   next()
+// })
 
 export default router
