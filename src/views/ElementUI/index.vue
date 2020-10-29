@@ -9,7 +9,13 @@
     <!-- 
       handleClose 关闭前的回调
      -->
-    <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :close-on-click-modal="true"
+      :close-on-press-escape="false"
+    >
       <span>这是一段信息</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
