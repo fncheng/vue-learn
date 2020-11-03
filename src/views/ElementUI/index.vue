@@ -24,6 +24,29 @@
         >
       </span>
     </el-dialog>
+    <ul class="list">
+      <!-- 内联样式 -->
+      <!-- <li
+        class="item"
+        :style="{
+          'background-image':
+            'url(' + require('../../assets/images/01.jpeg') + ')'
+        }"
+      > -->
+      <!-- es2015 -->
+      <li
+        class="item"
+        :style="{
+          'background-image': `url(${require('../../assets/images/01.jpeg')})`
+        }"
+      >
+        <span>100</span><img src="" alt="" />
+      </li>
+      <li class="item"><span>100</span><img src="" alt="" /></li>
+      <li class="item"><span>100</span><img src="" alt="" /></li>
+      <li class="item"><span>100</span><img src="" alt="" /></li>
+      <li class="item"><span>100</span><img src="" alt="" /></li>
+    </ul>
   </div>
 </template>
 
@@ -52,4 +75,20 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.list {
+  width: 200px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .item {
+    width: 100%;
+    height: 100px;
+    background-color: gold;
+    // background-image: url('~@/assets/images/01.jpeg');
+  }
+}
+</style>
