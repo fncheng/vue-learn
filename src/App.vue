@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "App",
+  name: 'App'
 }
 </script>
 
@@ -35,4 +35,8 @@ li {
     }
   }
 }
+</style>
+
+<style lang="scss">
+@import './styles/base';
 </style>
