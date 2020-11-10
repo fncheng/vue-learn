@@ -34,6 +34,22 @@ const routes = [
     ],
   },
   { path: '/index', redirect: '/' },
+  // Download 页面
+  {
+    path: '/dl',
+    redirect: '/dl/index',
+    component: Layout,
+    children: [{ path: 'index', component: () => import('@/views/Download') }],
+  },
+  {
+    path: '/echart',
+    redirect: '/echart/index',
+    component: Layout,
+    children: [
+      { path: 'index', component: () => import('@/views/Echarts/') },
+      { path: 'index2', component: () => import('@/views/Echarts/index2') },
+    ],
+  },
   {
     path: '/father',
     name: 'Father',
