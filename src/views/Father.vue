@@ -10,6 +10,12 @@
       点击
     </button>
     <button @click="setLocalStorage">存入数据</button>
+    <ul @click="dateSwitch">
+      <li class="item" index="1">日</li>
+      <li class="item" index="2">周</li>
+      <li class="item" index="3">月</li>
+      <li class="item" index="4">年</li>
+    </ul>
   </div>
 </template>
 
@@ -60,6 +66,10 @@ export default {
     },
     showButton() {
       return true
+    },
+    dateSwitch(e) {
+      e.target.set
+      console.log(e.target.getAttribute('index'))
     }
   },
   mounted() {
