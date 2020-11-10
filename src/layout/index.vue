@@ -1,13 +1,13 @@
 <template>
   <div class="index">
     <header>
-      <h1>Index页面</h1>
       <router-link to="/father">Father</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/slot">Slot</router-link> |
       <router-link to="/mixin">Mixin</router-link> |
       <router-link to="/element-ui">ElementUI</router-link> |
-      <router-link to="/life">LifeCycle</router-link>
+      <router-link to="/life">LifeCycle</router-link> |
+      <router-link to="/echart">Echart</router-link> |
     </header>
     <div id="main-content">
       <keep-alive>
@@ -71,5 +71,9 @@ export default {
 <style>
 body {
   height: 100%;
+}
+header {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 </style>
