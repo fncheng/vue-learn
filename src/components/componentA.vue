@@ -6,10 +6,13 @@
 
 <script>
 export default {
-  name: "component-a",
+  name: 'component-a',
   // props: ["my-msg"],
   props: {
     myMsg: String
+  },
+  created() {
+    console.log('子组件--------------------------------------')
   }
 }
 </script>
