@@ -12,6 +12,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import User from './views/User'
 import About from '@/views/About/index.vue'
 
+if (process.env.NODE_ENV === 'development') {
+  console.log('开发环境')
+} else {
+  console.log('生产环境')
+}
+
 Vue.config.productionTip = false
 // 使用ant-design-vue
 Vue.use(Antd)
@@ -27,8 +33,11 @@ Vue.mixin({
   },
 })
 
+// 全局过滤器
+Vue.filter('all', () => '1111')
+
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: h => h(App),
 }).$mount('#app')
