@@ -81,6 +81,10 @@ const routes = [
     component: Layout,
     children: [
       { path: '', component: () => import('../views/ElementUI/index') },
+      {
+        path: 'loading',
+        component: () => import('../views/ElementUI/loading'),
+      },
     ],
   },
   {
@@ -104,6 +108,18 @@ const routes = [
     redirect: '/slot/index',
     component: Layout,
     children: [{ path: 'index', component: () => import('@/views/Slot') }],
+  },
+  {
+    path: '/test',
+    redirect: '/test/index',
+    component: Layout,
+    children: [{ path: '', component: () => import('@/views/Test/index') }],
+  },
+  {
+    path: '/tool',
+    redirect: '/tool/index',
+    component: Layout,
+    children: [{ path: '', component: () => import('@/views/Tool/index') }],
   },
   {
     path: '/media',
