@@ -29,8 +29,9 @@ export default {
     }
   },
   methods: {
-    currentPageChange() {
-      // this.currentPage = currentPage
+    currentPageChange(currentPage) {
+      console.log(currentPage)
+      this.currentPage = currentPage
       console.log('current page has changed')
     },
     handleSizeChange() {

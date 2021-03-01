@@ -82,8 +82,20 @@ const routes = [
     children: [
       { path: '', component: () => import('../views/ElementUI/index') },
       {
+        path: 'index2',
+        component: () => import('../views/ElementUI/index2'),
+      },
+      {
         path: 'loading',
         component: () => import('../views/ElementUI/loading'),
+      },
+      {
+        path: 'pagination',
+        component: () => import('../views/ElementUI/pagination/index'),
+      },
+      {
+        path: 'table',
+        component: () => import('../views/ElementUI/table/index'),
       },
     ],
   },
