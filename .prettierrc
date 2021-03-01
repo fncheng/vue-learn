@@ -1,5 +1,6 @@
 {
   "semi": false,
+  "printWidth": 80,
   "overrides": [
     {
       "files": "*.test.js",
@@ -28,6 +29,7 @@
     {
       "files": ["*.js"],
       "options": {
+        "arrowParens": "always",
         "trailingComma": "es5",
         "singleQuote": true,
         "tabWidth": 2
@@ -43,6 +45,7 @@
     {
       "files": ["*.vue"],
       "options": {
+        "arrowParens": "always",
         "semi": false,
         "trailingComma": "none",
         "singleQuote": true,
