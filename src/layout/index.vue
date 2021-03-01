@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <header>
+    <!-- <header>
       <router-link to="/father">Father</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/slot">Slot</router-link> |
@@ -8,7 +8,8 @@
       <router-link to="/element-ui">ElementUI</router-link> |
       <router-link to="/life">LifeCycle</router-link> |
       <router-link to="/echart">Echart</router-link> |
-    </header>
+    </header> -->
+    <routerNav></routerNav>
     <div id="main-content">
       <keep-alive>
         <router-view v-if="$route.meta.keepAlive">
@@ -25,14 +26,19 @@
 <script>
 // import { getAllFiles } from "../Api/api"
 // import service from "../utils/util"
+import routerNav from './routerNav'
 export default {
   name: 'Layout',
+  components: {
+    routerNav
+  },
   data() {
     return {
       msg: 'hello vue'
     }
   },
   created() {
+    console.log('Layout created')
     // 创建axios实例,然后通过实例直接调用axios身上的方法
     // service.get("https://gonelist.cugxuan.cn/onedrive/getallfiles")
     // service({
