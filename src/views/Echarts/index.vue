@@ -6,6 +6,7 @@
 
 <script>
 import echarts from 'echarts'
+import * as b from '@/utils/a'
 export default {
   name: 'echartsmorey',
   data() {
@@ -49,9 +50,9 @@ export default {
         },
         {
           x: '13:00',
-          y: 10,
+          y: 7.2,
           z: 12,
-          k: 11
+          x2: '11'
         },
         {
           x: '15:00',
@@ -149,8 +150,8 @@ export default {
         ],
         series: dataY
       }
-
-      this.myChart.on('legendselectchanged', obj => {
+      // 监听图例组件切换事件，切换数据
+      this.myChart.on('legendselectchanged', (obj) => {
         var options = this.myChart.getOption()
         options.xAxis[0].data = obj.name == '当月' ? this.monthX : this.dayX
         this.myChart.setOption(options, true)
@@ -162,28 +163,29 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.monthX = this.list.map(item => item.x2)
-      this.dayX = this.list.map(item => item.x)
+      this.monthX = this.list.map((item) => item.x2)
+      this.dayX = this.list.map((item) => item.x)
 
       this.dataY.push({
         name: '当月',
         type: 'line', // 直线
-        data: this.list.map(item => item.y)
+        data: this.list.map((item) => item.y)
       })
 
       this.dataY.push({
         name: '当天',
         type: 'line',
-        data: this.list.map(item => item.z)
+        data: this.list.map((item) => item.z)
       })
       this.dataY.push({
         name: '当年',
         type: 'line',
-        data: this.list.map(item => item.z)
+        data: this.list.map((item) => item.z)
       })
 
-      this.init(this.dayX, this.dataY)
+      this.init(this.monthX, this.dataY)
     })
+    console.log('es6', b.a)
   }
 }
 </script>
