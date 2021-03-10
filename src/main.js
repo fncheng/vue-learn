@@ -27,11 +27,11 @@ Vue.component('user', User)
 Vue.component('about', About)
 
 // 全局mixin
-Vue.mixin({
+/* Vue.mixin({
   created() {
     console.log('global mixin')
   },
-})
+}) */
 
 // 全局过滤器
 Vue.filter('all', () => '1111')
@@ -39,5 +39,5 @@ Vue.filter('all', () => '1111')
 new Vue({
   router,
   store,
-  render: h => h(App),
+  render: (h) => h(App),
 }).$mount('#app')
