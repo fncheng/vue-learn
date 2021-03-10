@@ -41,6 +41,7 @@ const routes = [
     component: Layout,
     children: [{ path: 'index', component: () => import('@/views/Download') }],
   },
+  // Echarts
   {
     path: '/echart',
     redirect: '/echart/index',
@@ -48,6 +49,7 @@ const routes = [
     children: [
       { path: 'index', component: () => import('@/views/Echarts/') },
       { path: 'index2', component: () => import('@/views/Echarts/index2') },
+      { path: 'index3', component: () => import('@/views/Echarts/index3') },
     ],
   },
   {
@@ -92,6 +94,10 @@ const routes = [
       {
         path: 'pagination',
         component: () => import('../views/ElementUI/pagination/index'),
+      },
+      {
+        path: 'tabs',
+        component: () => import('../views/ElementUI/tabs/index'),
       },
       {
         path: 'table',
