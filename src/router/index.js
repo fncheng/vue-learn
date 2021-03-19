@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Layout from '@/layout/index.vue'
+import Home from '@/views/Home'
+import Login from '@/views/Login'
 
 // 路由入口
 Vue.use(VueRouter)
@@ -11,6 +13,16 @@ const routes = [
     path: '/',
     name: 'index',
     component: Layout,
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
   },
   {
     path: '/about',
@@ -88,12 +100,24 @@ const routes = [
         component: () => import('../views/ElementUI/index2'),
       },
       {
+        path: 'dialog',
+        component: () => import('@/views/ElementUI/dialog/index'),
+      },
+      {
+        path: 'input',
+        component: () => import('../views/ElementUI/input/index.vue'),
+      },
+      {
         path: 'loading',
         component: () => import('../views/ElementUI/loading'),
       },
       {
         path: 'pagination',
         component: () => import('../views/ElementUI/pagination/index'),
+      },
+      {
+        path: 'popover',
+        component: () => import('../views/ElementUI/popover'),
       },
       {
         path: 'tabs',
@@ -131,13 +155,17 @@ const routes = [
     path: '/test',
     redirect: '/test/index',
     component: Layout,
-    children: [{ path: '', component: () => import('@/views/Test/index') }],
+    children: [
+      { path: 'index', component: () => import('@/views/Test/index') },
+    ],
   },
   {
     path: '/tool',
     redirect: '/tool/index',
     component: Layout,
-    children: [{ path: '', component: () => import('@/views/Tool/index') }],
+    children: [
+      { path: 'index', component: () => import('@/views/Tool/index') },
+    ],
   },
   {
     path: '/media',
@@ -153,20 +181,46 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/redirect',
+    redirect: '/redirect/index',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/redirect/index'),
+      },
+    ],
+  },
 ]
 
 const router = new VueRouter({
   routes,
 })
-
+let isAuthenticated
 // let pathName
 router.beforeEach((to, from, next) => {
   // to and from are both route objects. must call `next`.
-  // console.log('to:', to)
-  // pathName = to.path
-  // console.log('pathName:', pathName)
-  // console.log(router)
-
+  let localStorageUserData = JSON.parse(localStorage.getItem('userData'))
+  console.log('localStorageUserData: ', localStorageUserData)
+  let userData = localStorageUserData
+  console.log('userData: ', userData)
+  isAuthenticated =
+    userData !== null && userData !== '' && userData !== undefined
+  console.log('isAuthenticated: ', isAuthenticated)
+  // 未验证
+  if (!isAuthenticated) {
+    // 目标页不是Login,则跳转至Login页
+    if (to.name !== 'Login') {
+      next('/login')
+    } else {
+      next()
+    }
+  }
+  // has authenticated
+  else {
+    next()
+  }
   // router.addRoutes([
   //   {
   //     path: `${pathName}`,
@@ -177,16 +231,16 @@ router.beforeEach((to, from, next) => {
   //     ],
   //   },
   // ])
-  if (to.path == '/father/index') {
-    next('/')
-  }
-  console.group('------beforeEach: 全局路由守卫,路由跳转前触发------')
-  next()
+  // if (to.path == '/father/index') {
+  //   next('/')
+  // }
+  // console.group('------beforeEach: 全局路由守卫,路由跳转前触发------')
+  // next()
 })
 router.afterEach(() => {
   // to and from are both route objects.
-  console.log('------afterEach: 全局后置守卫,路由跳转后触发------')
-  console.log(router)
+  // console.log('------afterEach: 全局后置守卫,路由跳转后触发------')
+  // console.log(router)
 })
 // router.beforeResolve((to, from, next) => {
 //   console.log('------beforeResolve: 全局解析守卫,路由跳转前触发------')
