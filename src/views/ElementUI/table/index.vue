@@ -10,7 +10,7 @@
     :stripe="false"
     :border="false"
     :row-class-name="tableRowClassName"
-    height="200"
+    height="600"
     style="width: 100%"
   >
     <el-table-column prop="date" label="日期" width="180"> </el-table-column>
@@ -26,6 +26,9 @@
         <div>
           {{ slotProps.row }}
           <!-- slotProps.row 即obj这一项内容 -->
+        </div>
+        <div>
+          {{ slotProps.column }}
         </div>
       </template>
     </el-table-column>
@@ -91,8 +94,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-table ::v-deep.warning-row {
-  background: oldlace;
+.el-table ::v-deep .warning-row {
+  background: pink;
 }
 
 .el-table ::v-deep.success-row {
