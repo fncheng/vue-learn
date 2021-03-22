@@ -32,13 +32,7 @@ export default {
   components: {
     routerNav
   },
-  data() {
-    return {
-      msg: 'hello vue'
-    }
-  },
   created() {
-    console.log('Layout created')
     // 创建axios实例,然后通过实例直接调用axios身上的方法
     // service.get("https://gonelist.cugxuan.cn/onedrive/getallfiles")
     // service({

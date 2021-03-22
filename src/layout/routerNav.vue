@@ -2,8 +2,8 @@
   <header>
     <ul>
       <li v-for="(item, index) in list.slice(1)" :key="index">
-        <router-link :to="item" class="item"
-          >{{ item | navFormat }}
+        <router-link :to="item" class="item">
+          {{ item | navFormat }}
         </router-link>
         |
       </li>
@@ -31,7 +31,8 @@ export default {
       })
       return res
     }
-  }
+  },
+  methods: {}
 }
 </script>
 
