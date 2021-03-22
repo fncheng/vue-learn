@@ -6,6 +6,7 @@
     </el-button>
 
     <el-dialog
+      class="mydialog"
       title="提示"
       :visible.sync="dialogVisible"
       width="30%"
@@ -20,14 +21,21 @@
         </el-button>
       </span>
     </el-dialog>
+    <div>{{ '0' | resultFormat }}</div>
   </div>
 </template>
 
 <script>
+import test from './test'
 export default {
   data() {
     return {
       dialogVisible: false
+    }
+  },
+  filters: {
+    resultFormat(val) {
+      return test[val]
     }
   },
   methods: {
@@ -40,13 +48,24 @@ export default {
           console.log(err)
         })
     }
+  },
+  mounted() {
+    console.log(test)
+    console.log(test['0'])
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .dialog {
-  width: 400px;
-  height: 100%;
+  // width: 400px;
+  // height: 100%;
+}
+</style>
+
+<style lang="scss" scoped`>
+.el-dialog__wrapper.mydialog ::v-deep .el-dialog {
+  // left: 200px;
+  border-radius: 500px;
 }
 </style>
