@@ -3,8 +3,8 @@
   <div class="father">
     inputValue: <input type="text" v-model="inputValue" /> <br />
     msg: <input type="text" v-model="msg" />
-    <div>{{ reverseMsg }}</div>
-    <component-a :my-msg="msg" ref="myComponent">123</component-a>
+    <div>{{ reverseMsg | all }}</div>
+    <component-a v-if="true" :my-msg="msg" ref="myComponent">123</component-a>
     <component-b ref="myComponentB">123</component-b>
     <button @click="bindClick" :disabled="showButton()">
       点击
@@ -74,6 +74,14 @@ export default {
   },
   mounted() {
     console.log('组件：', this.$children)
+    // 动态添加路由
+    this.$router.addRoutes([
+      {
+        path: '/test',
+        component: () => import('@/views/Test/index')
+      }
+    ])
+    console.log('路由：', this.$router)
   }
 }
 </script>
