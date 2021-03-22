@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.6.4",
+    "aplayer": "^1.10.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "download": "^8.0.0",
@@ -30,6 +31,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -43,8 +45,7 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "rules": {}
+    }
   },
   "browserslist": [
     "> 1%",

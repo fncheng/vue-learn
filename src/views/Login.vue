@@ -33,6 +33,7 @@ export default {
   methods: {
     onSubmit() {
       console.log('submit')
+      localStorage.setItem('userData', '123')
       // axios.post(url,params)
       // .then(res => {
       //   console.log(res)
@@ -40,6 +41,7 @@ export default {
       // .catch(err => {
       //   console.error(err);
       // })
+      this.$router.push('/')
     }
   }
 }
