@@ -1,5 +1,12 @@
 <template>
   <div>
+    <div class="list">
+      <ul @click="legendSelectChanged">
+        <li><span class="icon"></span><span class="title">当日</span></li>
+        <li><span class="icon"></span><span class="title">当月</span></li>
+        <li><span class="icon"></span><span class="title">当年</span></li>
+      </ul>
+    </div>
     <div id="main"></div>
   </div>
 </template>
@@ -185,6 +192,19 @@ export default {
 
       // 使用刚指定的配置项和数据显示图表。
       this.myChart.setOption(option)
+    },
+    legendSelectChanged(e) {
+      console.log(e.target)
+      // var options = this.myChart.getOption()
+      // // options.xAxis[0].data = obj.name == '当月' ? this.monthX : this.dayX
+      // if (obj.name == '当月') {
+      //   options.xAxis[0].data = this.monthX
+      // } else if (obj.name == '当日') {
+      //   options.xAxis[0].data = this.dayX
+      // } else {
+      //   options.xAxis[0].data = this.yearX
+      // }
+      // this.myChart.setOption(options, true)
     }
   },
   mounted() {
@@ -217,9 +237,32 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #main {
   width: 1200px;
   height: 600px;
+}
+.list {
+  display: flex;
+  ul {
+    display: flex;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .icon {
+    width: 20px;
+    height: 14px;
+    display: block;
+    background-color: #ccc;
+  }
+  .title {
+    margin-left: 5px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
 }
 </style>
