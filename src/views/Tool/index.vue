@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  name: 'tool',
   data() {
     return {
       input: '',

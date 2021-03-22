@@ -42,6 +42,7 @@ export default {
   },
   async mounted() {
     console.log(2)
+    console.log('销毁', this.$router)
   },
   // async mounted() {
   //   let res = await this.getNumber()
