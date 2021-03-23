@@ -13,7 +13,6 @@
 
 <script>
 import echarts from 'echarts'
-import * as b from '@/utils/a'
 export default {
   name: 'echartsmorey',
   data() {
@@ -232,7 +231,6 @@ export default {
 
       this.init(this.monthX, this.dataY)
     })
-    console.log('es6', b.a)
   }
 }
 </script>

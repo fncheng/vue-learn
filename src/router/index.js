@@ -96,10 +96,6 @@ const routes = [
     children: [
       { path: '', component: () => import('../views/ElementUI/index') },
       {
-        path: 'index2',
-        component: () => import('../views/ElementUI/index2'),
-      },
-      {
         path: 'dialog',
         component: () => import('@/views/ElementUI/dialog/index'),
       },
@@ -108,8 +104,8 @@ const routes = [
         component: () => import('../views/ElementUI/input/index.vue'),
       },
       {
-        path: 'loading',
-        component: () => import('../views/ElementUI/loading'),
+        path: 'layout',
+        component: () => import('../views/ElementUI/layout/index.vue'),
       },
       {
         path: 'pagination',
