@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>双向绑定实现</title>
+  </head>
+  <body>
+    <div id="app">
+      emmm
+    </div>
+    <script src="./index.js"></script>
+    <script>
+      let data = {
+        name: "test"
+      }
+      // 监听data
+      new Observer(data)
+      
+      new Watcher(data, "name", value => {
+        let app = document.getElementById("app")
+        console.log(app)
+        app.textContent = value
+      })
+    </script>
+  </body>
+</html>
