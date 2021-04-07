@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { SET_STATUS } from '@/store/mutation-types'
 
 Vue.use(Vuex)
 
@@ -11,6 +12,9 @@ export default new Vuex.Store({
     status: 0,
   },
   getters: {
+    getName(state) {
+      return state.name
+    },
     getStatus(state) {
       return state.status
     },
@@ -24,7 +28,7 @@ export default new Vuex.Store({
       state.msg = value
       state.count++
     },
-    setStatus(state, data) {
+    [SET_STATUS](state, data) {
       state.status = data
     },
   },
@@ -33,6 +37,11 @@ export default new Vuex.Store({
       setTimeout(() => {
         commit('increment')
       }, 1000)
+    },
+    setStatusAsync({ commit }, value) {
+      setTimeout(() => {
+        commit(SET_STATUS, value)
+      }, 2000)
     },
   },
   modules: {},
