@@ -26,12 +26,9 @@ Vue.use(ElementUI)
 Vue.component('user', User)
 Vue.component('about', About)
 
+import mixin from './mixins'
 // 全局mixin
-/* Vue.mixin({
-  created() {
-    console.log('global mixin')
-  },
-}) */
+Vue.mixin(mixin)
 
 // 全局过滤器
 Vue.filter('all', () => '1111')
