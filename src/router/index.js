@@ -5,6 +5,9 @@ import Layout from '@/layout/index.vue'
 import Home from '@/views/Home'
 import Login from '@/views/Login'
 
+import elementRoutes from './modules/element'
+import learnVueRoutes from './modules/learnVue'
+// import learnVueRoutes from './modules/learnVue'
 // 路由入口
 Vue.use(VueRouter)
 
@@ -59,7 +62,10 @@ const routes = [
     redirect: '/echart/index',
     component: Layout,
     children: [
-      { path: 'index', component: () => import('@/views/Echarts/') },
+      {
+        path: 'linechart',
+        component: () => import('@/views/Echarts/linechart'),
+      },
       { path: 'index2', component: () => import('@/views/Echarts/index2') },
       { path: 'index3', component: () => import('@/views/Echarts/index3') },
     ],
@@ -87,42 +93,6 @@ const routes = [
     children: [
       { path: 'test', component: () => import('@/views/User') },
       { path: 'profile', component: () => import('../views/UserProfile.vue') },
-    ],
-  },
-  // ElementUI
-  {
-    path: '/element-ui',
-    component: Layout,
-    children: [
-      { path: '', component: () => import('../views/ElementUI/index') },
-      {
-        path: 'dialog',
-        component: () => import('@/views/ElementUI/dialog/index'),
-      },
-      {
-        path: 'input',
-        component: () => import('../views/ElementUI/input/index.vue'),
-      },
-      {
-        path: 'layout',
-        component: () => import('../views/ElementUI/layout/index.vue'),
-      },
-      {
-        path: 'pagination',
-        component: () => import('../views/ElementUI/pagination/index'),
-      },
-      {
-        path: 'popover',
-        component: () => import('../views/ElementUI/popover'),
-      },
-      {
-        path: 'tabs',
-        component: () => import('../views/ElementUI/tabs/index'),
-      },
-      {
-        path: 'table',
-        component: () => import('../views/ElementUI/table/index'),
-      },
     ],
   },
   {
@@ -155,6 +125,15 @@ const routes = [
       { path: 'index', component: () => import('@/views/Test/index') },
     ],
   },
+
+  {
+    path: '/todomvc',
+    redirect: '/todomvc/index',
+    component: Layout,
+    children: [
+      { path: 'index', component: () => import('@/views/todomvc/index') },
+    ],
+  },
   {
     path: '/tool',
     redirect: '/tool/index',
@@ -178,6 +157,10 @@ const routes = [
     ],
   },
   {
+    path: '/xss',
+    component: () => import('@/views/xss/index'),
+  },
+  {
     path: '/redirect',
     redirect: '/redirect/index',
     component: Layout,
@@ -188,6 +171,9 @@ const routes = [
       },
     ],
   },
+  // 路由表过长时，可以将其分割成小模块
+  elementRoutes,
+  learnVueRoutes,
 ]
 
 const router = new VueRouter({
