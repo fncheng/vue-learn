@@ -10,7 +10,13 @@
 <script>
 // 组件mixin
 const myMixin = {
+  data() {
+    return {
+      msg: 'mixin'
+    }
+  },
   created() {
+    console.log('mixin created')
     this.hello()
   },
   methods: {
@@ -24,7 +30,7 @@ export default {
   name: 'mixins',
   data() {
     return {
-      msg: 'mixin',
+      msg: 'component',
       name: 'zs',
       age: '',
       sex: ''
@@ -36,12 +42,11 @@ export default {
     }
   },
   async created() {
-    await setTimeout(() => {
-      console.log(1)
-    }, 5000)
+    console.log('组件 created')
+    await setTimeout(() => {}, 5000)
   },
   async mounted() {
-    console.log(2)
+    console.log('组件 mounted')
     console.log('销毁', this.$router)
   },
   // async mounted() {
