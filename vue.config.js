@@ -5,6 +5,10 @@ function resolve(dir) {
   return path.resolve(__dirname, dir)
 }
 
+// console.log(process.env)
+// console.log(process.env.ENV)
+// console.log(process.env.VUE_APP_BASE_API)
+
 module.exports = {
   // 对象模式
   configureWebpack: {
@@ -52,6 +56,7 @@ module.exports = {
   // },
   productionSourceMap: false,
   devServer: {
+    compress: true,
     port: 8888,
   },
 }

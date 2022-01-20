@@ -4,6 +4,7 @@ Test
 /dist
 /src/api
 /src/assets
+/Vue/vue
 
 # local env files
 .env.local
