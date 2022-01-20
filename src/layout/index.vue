@@ -68,12 +68,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.index {
+  display: flex;
+}
+#main-content {
+  flex: 1;
+}
 body {
   height: 100%;
-}
-header {
-  margin-top: 20px;
-  margin-bottom: 40px;
 }
 </style>
