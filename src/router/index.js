@@ -20,7 +20,16 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: Home,
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: Home,
+      },
+    ],
+    meta: {
+      title: '主页',
+    },
   },
   {
     path: '/login',
@@ -63,11 +72,11 @@ const routes = [
     component: Layout,
     children: [
       {
-        path: 'linechart',
+        path: '/echart/index',
         component: () => import('@/views/Echarts/linechart'),
       },
-      { path: 'index2', component: () => import('@/views/Echarts/index2') },
-      { path: 'index3', component: () => import('@/views/Echarts/index3') },
+      { path: '/echart/index2', component: () => import('@/views/Echarts/index2') },
+      { path: '/echart/index3', component: () => import('@/views/Echarts/index3') },
     ],
   },
   {
@@ -122,7 +131,13 @@ const routes = [
     redirect: '/test/index',
     component: Layout,
     children: [
-      { path: 'index', component: () => import('@/views/Test/index') },
+      {
+        path: 'index',
+        component: () => import('@/views/Test/index'),
+        meta: {
+          title: '测试页',
+        },
+      },
     ],
   },
 

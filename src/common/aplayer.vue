@@ -36,6 +36,7 @@ export default {
     }
   },
   mounted() {
+    /* eslint-disable */
     this.options.container = document.getElementById('aplayer')
     new APlayer(this.options)
   }

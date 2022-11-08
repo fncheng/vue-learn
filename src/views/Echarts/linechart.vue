@@ -7,7 +7,7 @@
 <script>
 import echarts from 'echarts'
 export default {
-  name: 'echartsmorey',
+  name: 'echarts',
   data() {
     return {
       list: [
@@ -96,19 +96,29 @@ export default {
         // 图例组件
         legend: {
           icon: 'stack',
-          data: ['当天', '当月', '当年'],
+          data: ['当日', '当月', '当年'],
           selectedMode: 'single', // 单选
           selected: {
-            当天: false,
+            当日: false,
             当月: true,
             当年: false
-          }
+          },
+          right: 220,
+          top: 0
         },
         tooltip: {
-          trigger: 'none',
+          show: true,
+          // 触发
+          trigger: 'axis',
+          // 指示器类型
           axisPointer: {
-            type: 'cross'
-          }
+            type: 'cross',
+            label: {
+              show: false
+            }
+          },
+
+          position: [10, 10] //位置，绝对定位
         },
         // 工具栏
         toolbox: {
@@ -199,7 +209,7 @@ export default {
       })
 
       this.dataY.push({
-        name: '当天',
+        name: '当日',
         type: 'line',
         data: this.list.map((item) => item.z)
       })

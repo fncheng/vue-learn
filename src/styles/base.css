@@ -54,8 +54,8 @@ a {
 
 img {
     /* 图片自适应 */
-    width: 100%;
-    display: block;
+    /* width: 100%; */
+    /* display: block; */
 }
 
 /* 提供了一些公共类 */

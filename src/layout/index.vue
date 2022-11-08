@@ -10,30 +10,23 @@
       <router-link to="/echart">Echart</router-link> |
     </header> -->
     <routerNav></routerNav>
-    <div id="main-content">
-      <keep-alive>
-        <router-view v-if="$route.meta.keepAlive">
-          <!-- 这里是会被缓存的视图组件，比如 Home！ -->
-        </router-view>
-      </keep-alive>
-      <router-view v-if="!$route.meta.keepAlive">
-        <!-- 这里是不被缓存的视图组件，比如 Edit！ -->
-      </router-view>
-    </div>
+    <MainContent class="main-content" />
   </div>
 </template>
 
 <script>
+import MainContent from './mainContent.vue'
 // import { getAllFiles } from "../Api/api"
 // import service from "../utils/util"
 import routerNav from './routerNav'
 export default {
   name: 'Layout',
   components: {
-    routerNav
+    routerNav,
+    MainContent
   },
   created() {
-    // 创建axios实例,然后通过实例直接调用axios身上的方法
+    MainContent // 创建axios实例,然后通过实例直接调用axios身上的方法
     // service.get("https://gonelist.cugxuan.cn/onedrive/getallfiles")
     // service({
     //   method: "GET"
@@ -72,7 +65,7 @@ export default {
 .index {
   display: flex;
 }
-#main-content {
+.main-content {
   flex: 1;
 }
 body {

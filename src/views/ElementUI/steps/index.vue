@@ -1,5 +1,6 @@
 <template>
   <div class="steps">
+    <el-input :autofocus="true" v-model="msg"></el-input>
     <el-steps :active="active" finish-status="success">
       <el-step title="步骤 1"></el-step>
       <el-step title="步骤 2"></el-step>
@@ -13,7 +14,8 @@
 export default {
   data() {
     return {
-      active: 0
+      active: 0,
+      msg: ''
     }
   },
   methods: {

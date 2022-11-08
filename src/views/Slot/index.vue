@@ -12,6 +12,7 @@
         {{ slotProps }} <br />
         {{ slotProps.user }} <br />
         {{ slotProps.age }}
+       obj: {{slotProps.obj}}
       </template>
 
       <div slot="footer">

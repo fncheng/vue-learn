@@ -4,13 +4,18 @@
     <p>这是具名插槽</p>
     <slot name="header" :myName="'header slot'">头部内容</slot> <br />
     <slot name="footer">尾部内容</slot> <br />
-    <slot name="scope" v-bind:user="'nick'" :age="18"></slot>
+    <slot name="scope" :user="'nick'" :age="18" :obj="obj"></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'slotA'
+  name: 'slotB',
+  data() {
+    return {
+      obj: 'this is obj'
+    }
+  }
 }
 </script>
 

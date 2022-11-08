@@ -11,8 +11,6 @@ export default {
   },
   created() {
     console.log(this.getMsg)
-  },
-  mounted() {
     this.getMsg()
   }
 }
